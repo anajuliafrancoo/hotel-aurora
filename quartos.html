@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cadastro de quarto – Hotel Aurora</title>
+  <link rel="stylesheet" href="../css/estilo.css">
+</head>
+<body>
+  <header>
+    <h1>Hotel Aurora<small>Sistema administrativo</small></h1>
+    <nav id="menu" aria-label="Menu principal">
+      <a href="../index.html">Início</a>
+      <a href="hospedes.html">Hóspedes</a>
+      <a href="quartos.html" aria-current="page">Quartos</a>
+      <a href="reservas.html">Reservas</a>
+      <a href="funcionarios.html">Funcionários</a>
+      <a href="consumos.html">Consumos</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Cadastro de quarto</h2>
+    <p class="apoio">Cadastre os quartos do hotel com tipo, capacidade e diária.</p>
+
+    <form id="form-quartos" class="tpi2" action="../php/quartos.php" method="post">
+      <label>Número do quarto <input type="number" name="numero" min="1" max="999" required></label>
+      <label>Andar <input type="number" name="andar" min="0" max="20" required></label>
+      <label>Tipo
+        <select name="tipo" required>
+          <option value="">Selecione</option>
+          <option value="solteiro">Solteiro</option>
+          <option value="casal">Casal</option>
+          <option value="familia">Família</option>
+          <option value="suite">Suíte</option>
+        </select>
+      </label>
+      <label>Capacidade (pessoas) <input type="number" name="capacidade" min="1" max="6" required></label>
+      <label>Diária (R$) <input type="number" name="diaria" min="0" step="0.01" required></label>
+      <label>Situação
+        <select name="situacao" required>
+          <option value="disponivel">Disponível</option>
+          <option value="ocupado">Ocupado</option>
+          <option value="manutencao">Em manutenção</option>
+        </select>
+      </label>
+      <button type="submit">Cadastrar quarto</button>
+    </form>
+
+    <div id="resposta" role="status" aria-live="polite"></div>
+    <p><a href="../index.html">Voltar à página inicial</a></p>
+  </main>
+
+  <script src="../js/app.js"></script>
+</body>
+</html>
