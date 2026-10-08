@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lançar consumo – Hotel Aurora</title>
+  <link rel="stylesheet" href="../css/estilo.css">
+</head>
+<body>
+  <header>
+    <h1>Hotel Aurora<small>Sistema administrativo</small></h1>
+    <nav id="menu" aria-label="Menu principal">
+      <a href="../index.html">Início</a>
+      <a href="hospedes.html">Hóspedes</a>
+      <a href="quartos.html">Quartos</a>
+      <a href="reservas.html">Reservas</a>
+      <a href="funcionarios.html">Funcionários</a>
+      <a href="consumos.html" aria-current="page">Consumos</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Lançar consumo</h2>
+    <p class="apoio">Registre serviços usados durante a estadia. A taxa de serviço de 10% é somada ao total.</p>
+
+    <form id="form-consumos" class="tpi2" action="../php/consumos.php" method="post">
+      <label>Número da reserva <input type="number" name="reserva" min="1" required></label>
+      <label>Serviço
+        <select name="servico" required>
+          <option value="">Selecione</option>
+          <option value="restaurante">Restaurante</option>
+          <option value="frigobar">Frigobar</option>
+          <option value="lavanderia">Lavanderia</option>
+          <option value="spa">Spa</option>
+          <option value="transfer">Transfer</option>
+        </select>
+      </label>
+      <label>Quantidade <input type="number" name="quantidade" min="1" required></label>
+      <label>Valor unitário (R$) <input type="number" name="valor_unitario" min="0" step="0.01" required></label>
+      <label>Data do consumo <input type="date" name="data_consumo" required></label>
+      <label>Funcionário responsável <input type="text" name="funcionario" required></label>
+      <button type="submit">Lançar consumo</button>
+    </form>
+
+    <div id="resposta" role="status" aria-live="polite"></div>
+    <p><a href="../index.html">Voltar à página inicial</a></p>
+  </main>
+
+  <script src="../js/app.js"></script>
+</body>
+</html>
